@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سپیدار آنلاین</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div id="toast"></div>
+<section id="loginView" class="login-wrap">
+  <form id="loginForm" class="login-card">
+    <div class="logo">س</div><h1>سپیدار آنلاین</h1><p>سامانه مدیریت باشگاه مشتریان</p>
+    <label>نام کاربری<input id="loginUsername" autocomplete="username" value="admin" required></label>
+    <label>رمز عبور<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+    <button class="primary wide">ورود به سامانه</button>
+    <small>اطلاعات روی دیتابیس مرکزی ذخیره می‌شود و از هر دستگاه متصل به اینترنت قابل دسترسی است.</small>
+  </form>
+</section>
+<div id="shell" class="shell hidden">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo small">س</div><div><b id="brandName">سپیدار</b><span>پنل مدیریت آنلاین</span></div></div>
+    <nav id="nav">
+      <button data-page="dashboard" class="active">داشبورد</button>
+      <button data-page="customers">مشتریان</button>
+      <button data-page="topup">شارژ حساب</button>
+      <button data-page="plans">طرح‌ها</button>
+      <button data-page="sale">کسر اعتبار / فروش</button>
+      <button data-page="services">خدمات</button>
+      <button data-page="transactions">تراکنش‌ها</button>
+      <button data-page="report">ریز کارکرد</button>
+      <button data-page="marketers">بازاریاب‌ها</button>
+      <button data-page="accounting">حسابداری</button>
+      <button data-page="settings">تنظیمات</button>
+    </nav>
+    <div class="side-bottom"><span id="who"></span><button id="logoutBtn" class="ghost">خروج</button></div>
+  </aside>
+  <main>
+    <header class="topbar"><button id="menuBtn" class="menu">☰</button><div><h2 id="pageTitle">داشبورد</h2><span id="statusText">متصل به سرور</span></div><div class="clock" id="clock"></div></header>
+    <div id="app" class="content"></div>
+  </main>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card"><button class="modal-x" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<script src="/app.js"></script>
+</body>
+</html>
