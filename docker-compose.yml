@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: sepidar
+      POSTGRES_USER: sepidar
+      POSTGRES_PASSWORD: sepidar_change_me
+    volumes:
+      - sepidar_pg:/var/lib/postgresql/data
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://sepidar:sepidar_change_me@db:5432/sepidar
+      JWT_SECRET: change_this_to_a_long_random_secret
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: ChangeMe123!
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+volumes:
+  sepidar_pg:
